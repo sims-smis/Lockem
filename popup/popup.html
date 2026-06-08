@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div id="off-screen">
+  <h2>Lockem is Off</h2>
+  <button id="turn-on">
+    Turn On
+  </button>
+</div>
+
+<div id="focus-active-screen" style="display:none">
+
+  <h2>Focus Mode Active</h2>
+
+  <p>
+    Shorts are locked.
+  </p>
+
+  <div id="countdown">
+    Loading...
+  </div>
+
+</div>
+
+<div id="on-screen">
+
+  <h2>Lockem</h2>
+
+  <label>
+    <input type="checkbox" id="hideShorts">
+    Hide Shorts
+  </label>
+
+  <label>
+    <input type="checkbox" id="hideComments">
+    Hide Comments
+  </label>
+
+  <label>
+    <input type="checkbox" id="hideFeed">
+    Hide Home Feed
+  </label>
+
+  <label>
+    <input type="checkbox" id="hideSidebar">
+    Hide Recommendations
+  </label>
+
+  <button id="focusBtn">
+    Lock Shorts
+  </button>
+
+  <div id="focusScreen" hidden>
+
+    <h3>Focus Mode</h3>
+
+    <input
+        id="focusMinutes"
+        type="number"
+        min="1"
+        value="30">
+
+    <button id="startFocus">
+        Start Focus
+    </button>
+
+  </div>
+
+  <button id="turn-off">
+    Turn Off Lockem
+  </button>
+
+</div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>

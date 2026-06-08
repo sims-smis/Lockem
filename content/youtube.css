@@ -1,0 +1,57 @@
+/* Comments */
+
+.lockem-hide-comments #comments {
+  display: none !important;
+}
+
+
+/* Sidebar */
+
+.lockem-hide-sidebar #secondary {
+  display: none !important;
+}
+
+
+/* Home Feed */
+
+.lockem-hide-feed ytd-rich-grid-renderer {
+  display: none !important;
+}
+
+
+/* Shorts Shelf */
+
+.lockem-hide-shorts ytd-reel-shelf-renderer {
+  display: none !important;
+}
+
+/* Dedicated Shorts shelves */
+
+.lockem-hide-shorts
+ytd-rich-shelf-renderer:has(
+  a[href*="/shorts/"]
+) {
+  display: none !important;
+}
+
+/* Shorts Cards */
+
+.lockem-hide-shorts
+ytd-rich-item-renderer:has(
+  a[href*="/shorts/"]
+) {
+  display: none !important;
+}
+
+.lockem-hide-shorts
+grid-shelf-view-model:has(
+  a[href*="/shorts/"]
+) {
+  display: none !important;
+}
+
+/* Hide shorts on shorts tab */
+
+.lockem-hide-shorts ytd-shorts {
+  display: none !important;
+}
