@@ -5,11 +5,26 @@
 </head>
 <body>
 
+<div class="header">
+
+  <h2> Lockem</h2>
+
+  <div class="header-actions">
+
+    <button id="theme-btn">
+      Theme
+    </button>
+
+    <button id="turn-off-on">
+      Turn On/Off Lockem
+    </button>
+
+  </div>
+
+</div>
+
 <div id="off-screen">
   <h2>Lockem is Off</h2>
-  <button id="turn-on">
-    Turn On
-  </button>
 </div>
 
 <div id="focus-active-screen" style="display:none">
@@ -28,7 +43,9 @@
 
 <div id="on-screen">
 
-  <h2>Lockem</h2>
+  <hr class="divider">
+
+  <h3>Distraction Controls</h3>
 
   <label>
     <input type="checkbox" id="hideShorts">
@@ -50,29 +67,49 @@
     Hide Recommendations
   </label>
 
+  <hr class="divider">
+
+  <div class="focus-section">
+
+  <h3>Focus Mode</h3>
+
+  <p>
+    Temporarily block Shorts for a fixed duration.
+  </p>
+
   <button id="focusBtn">
-    Lock Shorts
+    Start Focus Session
   </button>
 
-    <div id="focusScreen" hidden>
+  <div id="focusScreen" hidden>
 
-    <h3>Focus Mode</h3>
+    <div class="duration-row">
 
-    <input
+      <input
         id="focusMinutes"
         type="number"
         min="1"
         value="30">
 
-    <button id="startFocus">
-        Start Focus
-    </button>
+      <span>minutes</span>
 
     </div>
 
-  <button id="turn-off">
-    Turn Off Lockem
-  </button>
+    <div class="focus-actions">
+
+      <button id="startFocus">
+        Start Focus
+      </button>
+
+      <button id="cancelFocus">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
 </div>
 

@@ -69,7 +69,7 @@ const defaults = {
 };
 
 chrome.storage.sync.get(defaults, settings => {
-
+  console.log("what is settings ", settings);
     if (
         settings.shortsFocusActive &&
         settings.shortsUnlockTime &&
@@ -83,6 +83,12 @@ chrome.storage.sync.get(defaults, settings => {
 
         settings.shortsFocusActive = false;
         settings.shortsUnlockTime = null;
+    }
+
+    if (settings.theme === "dark") {
+      document.body.classList.add(
+        "dark-theme"
+      );
     }
 
     const focusActiveScreen =
@@ -139,22 +145,31 @@ chrome.storage.sync.get(defaults, settings => {
 });
 
 document
-.getElementById("turn-on")
-.addEventListener("click", () => {
+.getElementById("turn-off-on")
+.addEventListener(
+  "click",
+  async () => {
 
-  chrome.storage.sync.set({
-    enabled: true
-  }, () => location.reload());
-});
+    const settings =
+      await chrome.storage.sync.get({
+        enabled: true
+      });
 
-document
-.getElementById("turn-off")
-.addEventListener("click", () => {
+    await chrome.storage.sync.set({
+      enabled: !settings.enabled
+    });
+    location.reload();
+  }
+);
 
-  chrome.storage.sync.set({
-    enabled: false
-  }, () => location.reload());
-});
+// document
+// .getElementById("turn-off")
+// .addEventListener("click", () => {
+
+//   chrome.storage.sync.set({
+//     enabled: false
+//   }, () => location.reload());
+// });
 
 [
  "hideShorts",
@@ -181,14 +196,15 @@ const focusBtn =
 const focusScreen =
   document.getElementById(
     "focusScreen"
-  );
+);
 
 focusBtn.addEventListener(
   "click",
   () => {
 
-    focusScreen.hidden =
-      !focusScreen.hidden;
+    focusBtn.hidden = true;
+
+    focusScreen.hidden = false;
 
   }
 );
@@ -229,4 +245,46 @@ document
       window.close();
 
     }
+);
+
+const themeBtn =
+  document.getElementById(
+    "theme-btn"
+  );
+
+themeBtn.addEventListener(
+  "click",
+  async () => {
+
+    const current =
+      document.body.classList.contains(
+        "dark-theme"
+      );
+
+    const next =
+      current
+        ? "light"
+        : "dark";
+
+    await chrome.storage.sync.set({
+      theme: next
+    });
+
+    document.body.classList.toggle(
+      "dark-theme"
+    );
+  }
+);
+
+document
+.getElementById("cancelFocus")
+.addEventListener(
+  "click",
+  () => {
+
+    focusScreen.hidden = true;
+
+    focusBtn.hidden = false;
+
+  }
 );
