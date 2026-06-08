@@ -98,7 +98,7 @@ chrome.storage.sync.get(defaults, settings => {
 
     if (
         settings.shortsFocusActive &&
-        settings.shortsUnlockTime
+        settings.shortsUnlockTime && Date.now() <= settings.shortsUnlockTime
     ) {
 
         offScreen.style.display = "none";

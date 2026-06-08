@@ -23,7 +23,7 @@ function applyRules(settings) {
     settings.hideFeed
   );
 
-    function isFocusActive(settings) {
+  function isFocusActive(settings) {
 
     return (
         settings.shortsFocusActive &&
@@ -32,7 +32,7 @@ function applyRules(settings) {
         settings.shortsUnlockTime
     );
     }
-
+    
     const shouldHideShorts =
     settings.enabled &&
     (
@@ -47,14 +47,15 @@ function applyRules(settings) {
 }
 
 function run() {
-
   chrome.storage.sync.get(
     {
       enabled: true,
-      hideShorts: true,
-      hideComments: true,
-      hideFeed: true,
-      hideSidebar: true
+      hideShorts: false,
+      hideComments: false,
+      hideFeed: false,
+      hideSidebar: false,
+      shortsFocusActive: false,
+      shortsUnlockTime: null
     },
     applyRules
   );
